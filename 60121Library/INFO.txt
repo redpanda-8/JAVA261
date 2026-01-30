@@ -1,0 +1,112 @@
+Užduotis:  Bibliotekos duomenų pertvarkymas
+
+Turite seną bibliotekos programos sprendimą, kuriame viskas laikoma viename bendrame dvimačiame masyve:
+String[][] library = new String[100][4];
+
+Pavyzdys:
+
+static String[][] library = {
+
+        {"Haris Poteris", "Berniuko burtininko nuotykiai", "Fantastika", "0"},
+        {"Žiedų valdovas", "Kova už viduržemę", "Fantastika", "-1"},
+        {"Clean Code", "Programavimo geroji praktika", "Programavimas", "1"},
+        {"Effective Java", "Java kalbos patarimai", "Programavimas", "-1"},
+        {"Java pagrindai", "Įvadas į Java", "Programavimas", "0"},
+        {"Emocinis intelektas", "Kaip suprasti save", "Psichologija", "-1"},
+        {"Mąstyk ir būk turtingas", "Motyvacinė knyga", "Psichologija", "2"},
+        {"1984", "Distopinis romanas", "Fantastika", "-1"},
+        {"Duomenų struktūros", "Algoritmų pagrindai", "Programavimas", "3"},
+        {"Sąmoningumas", "Gyvenimo balansas", "Psichologija", "-1"}
+    };
+
+Kiekviena eilutė aprašo vieną knygą, o stulpeliai reiškia:
+0.Knygos pavadinimas
+1. Knygos aprašymas
+2. Kategorija
+3. Skaitytojo indeksas (pvz. "5" reiškia, kad knyga pas 5-ą skaitytoją; " -1 " reiškia bibliotekoje)
+
+Tačiau toks bendras dvimatis masyvas laikomas blogu sprendimu – reikia pertvarkyti taip,
+kad duomenys būtų laikomi atskirai per ArrayList.
+Tikslas: Perrašyti sprendimą taip, kad vietoje vieno bendro 2D masyvo būtų naudojami 3 atskiri ArrayList rinkiniai:
+1. Books (knygų duomenys)
+2. Categories (kategorijų sąrašas)
+3. Clients (skaitytojų sąrašas)
+
+Duomenų saugojimas (reikalavimai)
+1) Knygos (Books)
+Knygoms sukurkite atskirus ArrayList, pvz.:
+. ArrayList<String> bookTitles
+. ArrayList<String> bookDescriptions
+. ArrayList<Integer> bookCategoryIndex  (indeksas į Categories)
+. ArrayList<Integer> bookClientIndex    (indeksas į Clients, arba -1)
+Idėja: vienos knygos „įrašas“ yra tas pats indeksas visose knygų listuose.
+
+2) Kategorijos (Categories)
+. ArrayList<String> categories
+. Kategorijos turi būti unikalios (be dublikatų).
+. Jei įvedama knyga su nauja kategorija – ji įtraukiama į sąrašą.
+
+3) Skaitytojai (Clients)
+. ArrayList<String> clients (pvz. vardas + pavardė arba tiesiog vardas)
+. Skaitytojų indeksas naudojamas knygų sąraše (bookClientIndex).
+
+Pradiniai duomenys (minimalus kiekis)
+Programoje turi būti užpildyta bent:
+. 10 knygų
+. bent 3 kategorijos
+. bent 5 skaitytojai
+. bent 3 knygos turi būti „paimtos“ (t. y. bookClientIndex != -1)
+
+Funkcionalumas, kurį privaloma įgyvendinti
+A) Skaitytojų rikiavimas Bubble Sort ir išvedimas su jų knygomis
+1. Surikiuokite skaitytojus Bubble Sort metodu pagal vardą abėcėlės tvarka.
+2. Kadangi knygos nurodo skaitytoją per indeksą, rikiuojant skaitytojus reikia neprarasti ryšio:
+  . arba perrikiuoti ir bookClientIndex reikšmes,
+  . arba naudoti „indeksų masyvą“ (leidžiama, nes ne OOP), kuris saugo pradinį indeksą.
+3. Išveskite rezultatą:
+Pavyzdys (forma):
+
+Skaitytojas: Jonas
+  - Paimta: "Haris Poteris" (Fantastika)
+  - Paimta: "Clean Code" (Programavimas)
+Skaitytojas: Mantas  - (knygų neturi)
+
+B) Knygų išvedimas pagal kategorijas
+Išveskite visas kategorijas ir po kiekviena – visas tos kategorijos knygas.
+Pavyzdys:
+KATEGORIJA: Fantastika
+  - Haris Poteris
+  - Žiedų valdovas
+KATEGORIJA: Programavimas
+  - Clean Code  - Effective Java
+
+C) Knygų paieška visoje bibliotekoje
+Sukurkite metodą, kuris atlieka paiešką pagal tekstą ir grąžina/atspausdina rastas knygas.
+
+Reikalavimai paieškai:
+. metodas priima String query
+. paieška turi tikrinti bent: pavadinimą, aprašymą, kategorijos pavadinimą
+. paieška turi būti case-insensitive
+. jei nieko neranda – aiškus pranešimas.
+
+Pavyzdys:
+Paieška: "java"Rasta:
+  - Effective Java (Programavimas) [bibliotekoje]
+  - Java pagrindai (Programavimas) [pas skaitytoją: Jonas]
+
+
+Privalomų statinių metodų sąrašas
+Sukurkite bent šiuos metodus (pavadinimai gali skirtis, bet logika turi būti tokia):
+1. static void seedData(...) – užpildo pradinius duomenis
+2. static int getOrAddCategoryIndex(ArrayList<String> categories, String categoryName)
+3. static void printClientsWithBooksSorted(...) – bubble sort + išvedimas
+4. static void bubbleSortClients(...) – bubble sort realizacija
+5. static void printBooksByCategories(...)
+6. static void searchBooks(...)
+
+Papildomi reikalavimai / apribojimai
+main metodas tiesiog kviečia kitus metodus tokia tvarka:
+1. užpildyti duomenis
+2. išvesti skaitytojus (surikiuotus) su knygomis
+3. išvesti knygas pagal kategorijas
+4. paleisti kelias paieškas (hardcoded query)
