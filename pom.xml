@@ -17,6 +17,7 @@
         <module>60123OOP5person</module>
         <module>60119JavaArray</module>
         <module>60121Library</module>
+        <module>60130JavaIO</module>
     </modules>
 
     <properties>

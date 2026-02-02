@@ -32,11 +32,9 @@ public class Employee {
         return salary;}
     //toString
     public String toString() {
-        return "Employee[" + "id=" + id +
-                ", name='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
+        return "Employee[id=" + id +
+                ", name='" + getName() +
                 ", salary=" + salary +
                 ']';
     }
 }
-//    public String toString(){ return "First name: " +firstName+".Last name:"+lastName; }
