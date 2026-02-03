@@ -1,11 +1,11 @@
 package org.example;
 
 public class Publication {
-    String title;
+    String title; //properties
     double price;
-    //construtorius
+    //CONSTRUCTORiai
     public Publication(){} //tuscias constructorius
-    public Publication(String title, double price){
+    public Publication(String title, double price){ //PERKRAUTAS CONSTRUCTOR
         this.title=title;
         this.price=price;
     }
@@ -17,26 +17,22 @@ public class Publication {
     public String getTitle() {
         return title;
     }
-
     public void setTitle(String title) {
         this.title = title;
     }
-
     public double getPrice() {
         return price;
     }
-
     public void setPrice(double price) {
         this.price = price;
     }
 
     //METHOD OVERLOADING - kviesti ta pati methoda su skirtingais
     //parametrais - ji galima perkrauti tik tada kai skiriasi parametrai
-    //PERKROVIMAS - galima perkrauti tik toje pacioj klasej
     public String getInfo(){
         return title+". Price:" +price +getDeliveryInfo();
     }
-    public String getInfo(boolean showPrice){
+    public String getInfo(boolean showPrice){ //PERKROVIMAS - galima perkrauti tik toje pacioj klasej
         if(showPrice){
             return getInfo();
         }else{

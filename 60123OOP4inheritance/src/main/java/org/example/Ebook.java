@@ -1,5 +1,6 @@
 package org.example;
 
+// JAVA YRA TIK 1 LYGIO PAVELDEJIMAS - VIENU METU 1 CLASS (veliau-interface leidzia implement jau kelis)
 public class Ebook extends Publication{
     private String format;
     private int sizeMB;

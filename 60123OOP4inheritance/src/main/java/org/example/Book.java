@@ -11,8 +11,9 @@ public class Book extends Publication{
     }
     // OVER RIDE - PERRASINEJU METHOD
     // NEGALI SKIRTIS PARAMETRAI - JEIGU BE PARAMS-BE PARAMS-METHODO PARASAS IDENTISKAS
+    // CIA NERA GETINFO() BET NES EXTENDS PUBLICATION(KURI TURI GETINFO)>GALIM NAUDOT GETDELIVERYINFO
     @Override
     public String getDeliveryInfo(){
-        return "Author"+author+".Pages"+pages;
+        return "Author" +author+ ".Pages" + pages;
     }
 }

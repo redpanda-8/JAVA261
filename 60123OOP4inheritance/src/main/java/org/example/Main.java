@@ -6,9 +6,9 @@ public class Main {
     public static void main(String[] args){
         Publication publication = new Publication("Lietuvos dienorastis",2000.00);
         System.out.println(publication.getInfo());
-
-        //geras OVERLOADING pvz - kad nekurti daug skirtu metodu
+        //geras OVERLOADING pvz - kad nekurti daug skirtu metodu - overloadinam publication class getInfo methoda
         System.out.println(publication.getInfo(false));
+
         Book bookOne=new Book("Java for beginers",25,"Deimante",2000);
         System.out.println(bookOne.getInfo());
 
@@ -16,3 +16,4 @@ public class Main {
         System.out.println(ebook.getDeliveryInfo());
     }
 }
+//Book.java kviecia toString(){} > getInfo (i save kviecia getDeliveryInfo)> tada ideda ji i getDeliveryInfo(){}

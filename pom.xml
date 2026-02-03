@@ -18,6 +18,9 @@
         <module>60119JavaArray</module>
         <module>60121Library</module>
         <module>60130JavaIO</module>
+        <module>60126OOPAggregtnCompositn1</module>
+        <module>60126OOPAggregtnCompositn2</module>
+        <module>60126OOPAggregtnCompositn3</module>
     </modules>
 
     <properties>

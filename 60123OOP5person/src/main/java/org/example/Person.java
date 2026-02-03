@@ -20,3 +20,4 @@ public class Person {
                 ", address= " + address + '\'' + ' ';
     }
 }
+// toString() PERIMAMAS is Person ir perrasomas > Student ir Staff (ten VIDUJE toString PAIMA super.toString() )
