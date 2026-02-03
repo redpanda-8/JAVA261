@@ -1,4 +1,4 @@
-package org.example;
+package com.ia;
 
 public class Customer {
     private int id;
