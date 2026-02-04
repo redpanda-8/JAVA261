@@ -33,7 +33,7 @@ public class Money {
         requireSameCurrency(other);
         return new Money(this.amount.subtract(other.amount), currency);
     }
-    private void requireSameCurrency(Money other){
+    private void requireSameCurrency(Money other){ //sukuriam method ar sutampa valiuta
         Objects.requireNonNull(other);
         if(!this.currency.equals(other.currency)) throw new IllegalArgumentException("Currency mismatch");
     }

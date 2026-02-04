@@ -1,17 +1,47 @@
 package com.ia;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    static void main() {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        IO.println(String.format("Hello and welcome!"));
+    public static void main(String[] args){
+        Product bread = new FoodProduct("F-001", "Duona", Money.eur(1.50));
+        Product phone=new ElectronicsProduct("E-100", "Phone", Money.eur(500));
+        Product energyDrink=new AgeRestrictedProduct ("R-777", "Ener.gerimas", Money.eur(3), 16);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            IO.println("i = " + i);
+        Buyer regular=new RegularBuyer("Tomas", 16);
+        Buyer vip=new VipBuyer("Asta", 28);
+
+        Cart cart1=new Cart();
+        cart1.add(bread, 2);
+        cart1.add(energyDrink, 1); //Tomas 16 > turi mest klaida
+
+        Cart cart2=new Cart();
+        cart2.add(bread, 2);
+        cart2.add(phone, 1);
+        cart2.add(energyDrink, 3);
+
+        CheckoutService checkout=new CheckoutService();
+
+        //turi luzti del amziaus
+        try{
+            Receipt r1 = checkout.chechout(regular, cart1);
+            print(r1);
+        } catch (Exception e){
+            System.out.println("Nepavyko checkout" +e.getMessage());
         }
+        //VIP pirkejas
+        Receipt r2 = checkout.chechout(vip, cart2);
+        print(r2);
+    }
+    private static void print(Receipt r){
+        System.out.println("===CEKIS: " +r.buyerName() +" ===");
+        for (ReceiptLine line : r.lines()) {
+            System.out.println(
+                    line.productName() + "x" +line.qty()
+                    + "|vnt" +line.unitPrice()
+                    + "|nuolaida" +(int)(line.discount()*100)+"%"
+//                    + "|suma" +line.lineTotal()
+            );
+        }
+        System.out.println("Total" +r.total());
+        System.out.println();
     }
 }

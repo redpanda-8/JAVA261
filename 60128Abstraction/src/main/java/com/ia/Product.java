@@ -3,8 +3,9 @@ package com.ia;
 public abstract class Product {
     private String id;
     private String name;
-    private Money basePrice;
-
+    private Money basePrice; //turi rysi su Money klase
+    //constructorius
+    //protected - neleidziu is isores kurti produktu, leidziu kurti tik tai klasei kuri sita paveldes
     protected Product(String id, String name, Money basePrice){
         if(id==null || id.isBlank()) throw new IllegalArgumentException("id required");
         if(name==null || name.isBlank()) throw new IllegalArgumentException("name required");
@@ -17,6 +18,6 @@ public abstract class Product {
     public String id(){return id;}
     public String name(){return name;}
     public Money basePrice(){return basePrice;}
-
+    //sita klase peveldes visi vaikai kurie naudos method finalPrice. AbstractClass Tikslas-deklaruot, ne realizuot
     public abstract Money finalPrice(PricingContext ctx);
 }

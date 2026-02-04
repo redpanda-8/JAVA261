@@ -6,7 +6,7 @@ public class PricingContext {
         if(buyer==null) throw new IllegalArgumentException("buyer is required");
         this.buyer=buyer;
     }
-    public Buyer buyer(){
+    public Buyer buyer(){ //grazins pirkeja
         return buyer;
     }
 }

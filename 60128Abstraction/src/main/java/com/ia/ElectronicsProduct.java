@@ -1,6 +1,7 @@
 package com.ia;
 
-public class ElectronicsProduct {
+public class ElectronicsProduct extends Product{
+    //static - is sono keiciama
     private static double VAT=1.21;
     public ElectronicsProduct(String id, String name, Money basePrice){
         super(id, name, basePrice);
