@@ -22,6 +22,7 @@
         <module>60126OOPAggregtnCompositn2</module>
         <module>60126OOPAggregtnCompositn3</module>
         <module>60128Abstraction</module>
+        <module>60128AbstractionShapes</module>
     </modules>
 
     <properties>
