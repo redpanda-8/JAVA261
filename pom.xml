@@ -24,6 +24,7 @@
         <module>60128Abstraction</module>
         <module>60128AbstractionShapes</module>
         <module>60130JavaIOgrades</module>
+        <module>60206AbstractClasses</module>
     </modules>
 
     <properties>
