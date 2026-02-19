@@ -1,0 +1,38 @@
+Užduotis - Knygyno valdymo sistema
+
+1. Sistemos tikslas:
+Sistema skirta modeliuoti knygyno veiklą, leidžiant saugoti informaciją apie skirtingų tipų knygas, jų kainas, autorius ir papildomas savybes.
+Sistema naudoja objektinio programavimo principus: paveldėjimą, abstrakčias klases ir polimorfizmą.
+
+2. Sistemos struktūra:
+Sistema sudaryta iš abstrakčios klasės Knyga, dviejų konkrečių knygų tipų bei klasės Knygynas, kuri saugo ir valdo knygų kolekciją.
+
+3. Abstrakti klasė „Knyga“:
+Knyga aprašo bendras visų knygų savybes: Pavadinimas, Autorius, Kaina
+Ši klasė apibrėžia bendrą elgesį visoms knygoms ir turi abstraktų metodą, kuris nusako knygos tipą.
+Kadangi tai abstrakti klasė, tiesioginių objektų iš jos kurti negalima.
+
+4. Klasė „PopierinėKnyga“:
+Tai konkretus knygos tipas, paveldintis iš klasės „Knyga“.
+Papildomai aprašo: Puslapių skaičių.
+Ši klasė pateikia savo knygos tipo reikšmę ir atstovauja fizinėms knygoms.
+
+5. Klasė „ElektroninėKnyga“:
+Taip pat paveldi iš „Knyga“.
+Papildomai aprašo: Failo dydį megabaitais.
+Ši klasė atstovauja skaitmeninėms knygoms.
+
+6. Klasė „Knygynas“:
+Knygynas saugo knygų katalogą ir leidžia jį valdyti.
+Knygynas gali:
+Pridėti naują knygą į katalogą,
+Pašalinti knygą pagal pavadinimą,
+Rasti knygas pagal autorių,
+Apskaičiuoti bendrą visų knygų vertę,
+Atvaizduoti visą katalogą.
+Knygynas gali turėti daug skirtingų knygų.
+
+7. Klasių tarpusavio ryšiai:
+„PopierinėKnyga“ ir „ElektroninėKnyga“ paveldi iš „Knyga“
+„Knygynas“ turi knygų kolekciją
+Tai leidžia vieningai dirbti su skirtingų tipų knygomis naudojant bendrą „Knyga“ tipą.
