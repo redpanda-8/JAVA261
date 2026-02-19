@@ -1,5 +1,5 @@
 package org.example;
-
+//REALIZUOJANTI KLASE
 public class BigDog extends Dog{
     public BigDog(String name) {
         super(name);
